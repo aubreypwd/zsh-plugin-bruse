@@ -1,6 +1,6 @@
 # `bruse`
 
-A function that helps you use (`brew link`) different versions of packges using [homebrew](https://brew.sh].
+A function that helps you use (`brew link`) different versions of packges using [homebrew](https://brew.sh).
 
 ## Usage
 
