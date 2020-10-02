@@ -1,16 +1,17 @@
 #!/bin/zsh
 
-if [[ $(command -v antigen) ]]; then
-	# antigen bundle aubreypwd/zsh-plugin-require@1.0.1
-	# antigen apply
-
-	# require "brew" "" "brew"
-fi
-
-# bruse php 7.2
-
+###
+ # Bruse
+ #
+ # E.g: bruse php 7.4
+ #
+ # @since 1.0.0
+ # @since 10/2/20
+ #
+ # @author Aubrey Portwood <aubrey@webdevstudios.com>
+ ##
 function bruse {
-	if ! [[ -x $(command -v brew) ]]; then >&2 echo "This requires that you use Homebrew (https://brew.sh), we couldn't find the 'brew' command." && return; fi
+	if ! [[ -x $(command -v brew) ]]; then >&2 echo "This helps out Homebrew (https://brew.sh), we couldn't find the 'brew' command." && return; fi
 	if ! [[ -x $(command -v xargs) ]]; then >&2 echo "This requires 'xargs' command which was not found." && return; fi
 
 	local package="$1"
@@ -26,10 +27,10 @@ function bruse {
 		return
 	fi
 
-	local result=$( brew link "$package@$version" --force --overwrite )
+	local try_link=$( brew link "$package@$version" --force --overwrite )
 
-	if [[ "$result" == *"relink:"* ]]; then # Try and link the new version, unless it tells us we need to relink...
-		local relink=$( echo "$result" | grep -Eo '  (.*)' ) # Get the relink command that brew is giving us.
+	if [[ "$try_link" == *"relink:"* ]]; then # Try and link the new version, unless it tells us we need to relink...
+		local relink=$( echo "$try_link" | grep -Eo '  (.*)' ) # Get the relink command that brew is giving us.
 		local relink=$( echo "$relink" | xargs ) # Trim the command.
 		local relink="$relink --overwrite" # Make sure we overwrite anything.
 
