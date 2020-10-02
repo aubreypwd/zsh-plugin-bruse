@@ -26,8 +26,6 @@ bruse node 12
 - `xargs`
 - `grep`
 
-<sup>*</sup> If using [homebrew](https://brew.sh) on macOS, these will automatically be installed.
-
 ## Install
 
 Using [antigen](https://github.com/zsh-users/antigen):
