@@ -12,7 +12,6 @@ fi
 function bruse {
 	if ! [[ -x $(command -v brew) ]]; then >&2 echo "This requires that you use Homebrew (https://brew.sh), we couldn't find the 'brew' command." && return; fi
 	if ! [[ -x $(command -v xargs) ]]; then >&2 echo "This requires 'xargs' command which was not found." && return; fi
-	if ! [[ -x $(command -v grep) ]]; then >&2 echo "This requires 'grep' command which was not found." && return; fi
 
 	local package="$1"
 	local version="$2"
