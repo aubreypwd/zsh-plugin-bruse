@@ -27,16 +27,16 @@ function bruse {
 		return
 	fi
 
-	local try_link=$( brew link "$package@$version" --force --overwrite )
+	local try_link_results=$( brew link "$package@$version" --force --overwrite )
 
-	if [[ "$try_link" == *"relink:"* ]]; then # Try and link the new version, unless it tells us we need to relink...
-		local relink=$( echo "$try_link" | grep -Eo '  (.*)' ) # Get the relink command that brew is giving us.
-		local relink=$( echo "$relink" | xargs ) # Trim the command.
-		local relink="$relink --overwrite" # Make sure we overwrite anything.
+	if [[ "$try_link_results" == *"relink:"* ]]; then # Try and link the new version, unless it tells us we need to relink...
+		local relink_command=$( echo "$try_link_results" | grep -Eo '  (.*)' ) # Get the relink command that brew is giving us.
+		local relink_command=$( echo "$relink_command" | xargs ) # Trim the command.
+		local relink_command="$relink_command --overwrite" # Make sure we overwrite anything.
 
-		if [[ $relink == *"brew unlink"* ]]; then # Confirm we have an unlink command.
-			echo "Linking using '$relink'..."
-			eval "$relink"
+		if [[ $relink_command == *"brew unlink"* ]]; then # Confirm we have an unlink command.
+			echo "Linking using '$relink_command'..."
+			eval "$relink_command"
 		fi
 	fi
 }
