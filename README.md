@@ -15,6 +15,27 @@ bruse php 7.4
 bruse node 12
 ```
 
+### Without Parameters
+
+```bash
+bruse
+```
+
+#### `.bruse.json`
+
+```json
+{
+  "node": "10",
+  "php": "7.2"
+}
+```
+
+Using the above example, if a `.bruse.json` file exists, it will read through it automatically run e.g. `bruse node@10` and `bruse php@7.2` when you run `bruse` w/out any parameters.
+
+#### `.nvmrc`
+
+If you have an `.nvmrc` file with a semver value, e.g. `12` or `10.4` it will automatically, too, try and install it using `bruse node@<version>` when you run `bruse` w/out any parameters.
+
 ![Screenshot](screenshot.gif)
 
 - _Note, if you request a version that is not installed, this script will try install it for you._
@@ -43,12 +64,3 @@ antigen bundle ssh://git@github.com/aubreypwd/zsh-plugin-bruse.git
 ```
 
 ...and contribute upstream by working in `$HOME/.antigen/bundles/aubreypwd/zsh-plugin-bruse`.
-
----
-
-## Changelog
-
-### 1.0.0
-
-- First version
-- Extensively tested with `php` package
