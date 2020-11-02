@@ -39,6 +39,7 @@ function bruse_json() {
  # @since 1.1.0
  ##
 function bruse_nvmrc() {
+
 	if ! [[ -x $(command -v xargs) ]]; then
 		return;
 	fi
@@ -48,6 +49,12 @@ function bruse_nvmrc() {
 	fi
 
 	local version=$(cat .nvmrc | xargs)
+
+	if ! [[ $version =~ '([0-9]+\.?)' ]]; then
+		echo "Cannot install node at version '$version' as it is not numeric."
+
+		return
+	fi
 
 	bruse node "$version"
 }
@@ -63,6 +70,7 @@ function bruse_nvmrc() {
  # @author Aubrey Portwood <aubrey@webdevstudios.com>
  ##
 function bruse {
+
 	if [[ "" = "$1" ]]; then
 		bruse_nvmrc
 
