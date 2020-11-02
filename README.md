@@ -15,10 +15,7 @@ bruse php 7.4
 bruse node 12
 ```
 
-### w/out Parameters
-
-e.g. 
-
+### Without Parameters
 
 ```bash
 bruse
@@ -38,7 +35,6 @@ Using the above example, if a `.bruse.json` file exists, it will read through it
 #### `.nvmrc`
 
 If you have an `.nvmrc` file with a semver value, e.g. `12` or `10.4` it will automatically, too, try and install it using `bruse node@<version>` when you run `bruse` w/out any parameters.
-
 
 ![Screenshot](screenshot.gif)
 
