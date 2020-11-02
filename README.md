@@ -30,11 +30,11 @@ bruse
 }
 ```
 
-Using the above example, if a `.bruse.json` file exists, it will read through it automatically run e.g. `bruse node@10` and `bruse php@7.2` when you run `bruse` w/out any parameters.
+Using the above example, if a `.bruse.json` file exists, it will read through it automatically run e.g. `bruse node 10` and `bruse php 7.2` when you run `bruse` w/out any parameters.
 
 #### `.nvmrc`
 
-If you have an `.nvmrc` file with a semver value, e.g. `12` or `10.4` it will automatically, too, try and install it using `bruse node@<version>` when you run `bruse` w/out any parameters.
+If you have an `.nvmrc` file with a semver value, e.g. `12` or `10.4` it will automatically, too, try and install it using `bruse node <version>` when you run `bruse` w/out any parameters.
 
 ![Screenshot](screenshot.gif)
 
