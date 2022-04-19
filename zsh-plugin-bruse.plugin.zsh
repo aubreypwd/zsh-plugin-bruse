@@ -101,7 +101,7 @@ function bruse {
 		return
 	fi
 
-	local try_link_results=$( brew link "$package@$version" --force --overwrite )
+	local try_link_results=$( brew unlink "$package@$version" && brew link "$package@$version" --force --overwrite )
 
 	if [[ "$try_link_results" == *"relink:"* ]]; then # Try and link the new version, unless it tells us we need to relink...
 		local relink_command=$( echo "$try_link_results" | grep -Eo '  (.*)' ) # Get the relink command that brew is giving us.
